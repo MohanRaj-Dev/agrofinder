@@ -1,0 +1,59 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'App/style1.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <title>
+        {%block title%}
+        
+        {%endblock%}
+    </title>
+</head>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="{%url 'home'%}">Ferti Finder</a>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="{%url 'district'%}">Seasons</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{%url 'rates'%}">Rates</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{%url 'products'%}">Products</a>
+        </li>
+          <li class="nav-item">
+              
+              <a class="nav-link" href="{%url 'home'%}">Crops</a>
+            </li>
+        <li class="nav-item">
+          <form class="form-inline my-2 my-lg-0 search-form"  action="{% url 'search' %}" method="get">
+            <i class="fas fa-search search-icon"></i>
+            <input class="form-control mr-sm-2 search-input" type="search" placeholder="Search..." aria-label="Search" name="q">
+          </form>
+        </li>
+        
+      </ul>
+    </div>
+  </nav>
+<body>
+ 
+  <h3 style="display: flex; justify-content: center;letter-spacing: 5px; margin: 40px 0; font-size: 2rem; font-family: 'Bebas Neue', sans-serif;
+      font-weight: 500;
+      font-style: normal;">{%block quote%} {%endblock%}</h3>
+    {%block content%}
+    {% endblock %}
+</body>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script> <!-- Font Awesome -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</html>

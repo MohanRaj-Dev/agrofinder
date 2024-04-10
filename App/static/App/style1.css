@@ -1,0 +1,42 @@
+ /* Custom CSS for navbar */
+ .navbar-brand {
+    font-weight: bold;
+  }
+
+  .navbar-nav .nav-link {
+    font-weight: bold;
+  }
+
+  /* Adjust padding for search bar */
+  .search-form {
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+    height: 100%; /* Set the height of the search bar */
+  }
+
+  /* Adjust margin for search icon */
+  .search-icon {
+    background-color: rgb(255, 255, 255); /* Set background color of search icon */
+    padding: 12px; /* Add padding to make the icon square */
+  }
+  /* Remove border and focus style for input */
+  .search-input {
+    border: none;
+    border-radius: 0;
+    outline: none;
+    box-shadow: none;
+    height: 100%; /* Set the height of the input box */
+    width: 100%; /* Make the input box fill the available width */
+  }
+
+  /* Remove blue outline when active */
+  .search-input:focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+.card{
+    margin: 20px;
+}
+

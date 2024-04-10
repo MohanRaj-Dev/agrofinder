@@ -1,0 +1,36 @@
+<title>Home</title>
+{% extends 'App/base.html' %}
+<style>
+  .cards{
+    margin: 4000px;
+  }
+</style>
+
+{%block quote%}
+Harvest Your Potential: Find Fertilizers, Reap Rewards!
+{%endblock%}
+
+{% block content %}
+      
+   
+<div class="row row-cols-4 g-4">
+  {% for fertilizer in fertilizers %}
+    <div class="col">
+      <a href="{% url 'details' fertilizer.pk %}" style="text-decoration: none;">
+      <div class="card cards">
+        <img src="{{ fertilizer.image.url }}" class="card-img-top" alt="">
+        <div class="card-body">
+            <h5 class="card-title" style="color: black;">{{ fertilizer.name }}</h5>
+          <p class="card-text" style="color: black;">
+            Nitrogen: {{ fertilizer.nitrogen }}<br>
+            Phosphorus: {{ fertilizer.phosphorous }}<br>
+            Potassium: {{ fertilizer.potassium }}
+          </p>
+        </div>
+      </div>
+      </a>
+    </div>
+  {% endfor %}
+</div>
+
+{% endblock %}

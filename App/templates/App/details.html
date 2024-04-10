@@ -1,0 +1,27 @@
+{%extends 'App/base.html'%}
+{%block title%}
+        Details
+        {%endblock%}
+{%block content%}
+<div class="container">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <div class="blog-post">
+          <h2 class="text-center">{{fertilizer.name}}</h2>
+          <img src="{{fertilizer.image.url}}" alt="{{fertilizer.name}}" class="img-fluid">
+          
+          <h1 class="my-3">Fertilizers</h1>
+          <h5>Nitrogen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;≈ {{fertilizer.nitrogen}}&nbsp;Kg/acre</h5>
+          <h5>Phosphorus &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;≈ {{fertilizer.phosphorous}}&nbsp;Kg/acre</h5>
+          <h5>Potassium&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;≈ {{fertilizer.potassium}}&nbsp;Kg/acre</h5>
+          <h5>Urea&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;≈ {{fertilizer.urea}}&nbsp;Kg/acre </h5>
+          <h5>DAP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;≈ {{fertilizer.DAP}}&nbsp;Kg/acre </h5>
+          <h5>Muriate of Potash &nbsp;≈ {{fertilizer.muriate_of_potash}}&nbsp;Kg/acre </h5>
+          <h2 class="my-3 mt-5">Tips to Cultivate {{fertilizer.name}}</h2>
+          <p> {{fertilizer.desc | safe}} </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  {%endblock%}
+  

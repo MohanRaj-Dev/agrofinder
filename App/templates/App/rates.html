@@ -1,0 +1,25 @@
+{%extends 'App/base.html'%}
+{%block title%}
+        Rates
+        {%endblock%}
+{%block content%}
+<div class="container mt-5">
+  <h2>Current Rates in Tamilnadu</h2>
+  <table class="table table-striped mt-3">
+    <thead>
+      <tr>
+        <th>Crops</th>
+        <th>Rates</th>
+      </tr>
+    </thead>
+    <tbody>
+        {%for rate in rates%}
+        <tr>
+            <strong><td>{{rate.crop.name}}</td></strong>
+            <td>₹{{rate.price | safe}} / Kg </td>
+          </tr>
+          {%endfor%}
+      </tbody>
+    </table>
+  </div>
+{%endblock%}

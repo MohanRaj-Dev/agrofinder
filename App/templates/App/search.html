@@ -1,0 +1,58 @@
+{%extends 'App/base.html'%}
+{%block title%}
+        Search
+        {%endblock%}
+{%block content%}
+    {%if results%}
+    {%for result in results%}
+    <div class="container">
+        <div class="row">
+          <div class="col-md-8 offset-md-2">
+            <div class="blog-post">
+              <h2 class="text-center">{{result.name}}</h2>
+              <img src="{{result.image.url}}" alt="{{result.name}}" class="img-fluid">
+              
+              <h1 class="my-3">Fertilizers</h1>
+              <h5>Nitrogen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;≈ {{result.nitrogen}}&nbsp;Kg/acre</h5>
+              <h5>Phosphorus &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;≈ {{result.phosphorous}}&nbsp;Kg/acre</h5>
+              <h5>Potassium&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;≈ {{result.potassium}}&nbsp;Kg/acre</h5>
+              <h5>Urea&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;≈ {{result.urea}}&nbsp;Kg/acre </h5>
+              <h5>DAP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;≈ {{result.DAP}}&nbsp;Kg/acre </h5>
+              <h5>Muriate of Potash &nbsp;≈ {{result.muriate_of_potash}}&nbsp;Kg/acre </h5>
+              {%for rate in rates%}
+              <h3 class="my-5">Current Price: ₹ {{rate.price}} / Kg </h3>
+              {%endfor %}
+              <h2 class="my-3 mt-5">Tips to Cultivate {{result.name}}</h2>
+              <p> {{result.desc}} </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    {%endfor%}
+    {%else%}
+    <div class="alert alert-danger" role="alert">
+        "{{query}}"  Not Found <!DOCTYPE html>
+      </div>
+    {%endif%}
+    <h1 class="ml-3">More Crops</h1>
+    
+<div class="row row-cols-4 g-4">
+    {% for crop in crops %}
+    <div class="col">
+        <a href="{% url 'details' crop.pk %}" style="text-decoration: none;">
+        <div class="card">
+          <img src="{{ crop.image.url }}" class="card-img-top" alt="">
+          <div class="card-body">
+              <h5 class="card-title" style="color: black;">{{ crop.name }}</h5>
+            <p class="card-text" style="color: black;">
+              Nitrogen: {{ crop.nitrogen }}<br>
+              Phosphorus: {{ crop.phosphorous }}<br>
+              Potassium: {{ crop.potassium }}
+            </p>
+          </div>
+        </div>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+{%endblock content%}

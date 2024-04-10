@@ -1,0 +1,29 @@
+{%extends 'App/base.html'%}
+{%block title%}
+Products
+{%endblock%}
+{%block quote%}
+Grow Beyond Limits: Fertilizers for Flourishing Fields!
+{%endblock%}
+{%block content%}
+  
+<div class="row row-cols-4 g-4">
+    {% for product in products %}
+      <div class="col">
+        <a href="{{product.web}}" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
+        <div class="card cards">
+          <img src="{{ product.image.url }}" class="card-img-top" alt="">
+          <div class="card-body">
+              <h5 class="card-title" style="color: black;">{{ product.name | slice:":50" }}...</h5>
+            <p class="card-text" style="color: black;">
+              <h3 style="text-decoration: none; color: black;">₹{{product.price}}.00</h3>
+             <a href="{{product.web}}">link</a>
+            </p>
+          </div>
+        </div>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+  
+{%endblock%}

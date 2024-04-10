@@ -1,0 +1,92 @@
+{% extends 'App/base.html' %}
+{% block title %}
+Info
+{% endblock %}
+{% block content %}
+<form action="{% url 'district' %}" method="get">
+    <div class="container mt-5">
+        <h2>Select a District in Tamil Nadu:</h2>
+        <select class="form-control mt-3" id="districts" name="d">
+          <option value="">Select District</option>
+          <option  value="Ariyalur">Ariyalur</option>
+        <option  value="Chengalpattu">Chengalpattu</option>
+        <option  value="Chennai">Chennai</option>
+        <option  value="Coimbatore">Coimbatore</option>
+        <option  value="Cuddalore">Cuddalore</option>
+        <option  value="Dharmapuri">Dharmapuri</option>
+        <option  value="Dindigul">Dindigul</option>
+        <option  value="Erode">Erode</option>
+        <option  value="Kallakurichi">Kallakurichi</option>
+        <option  value="Kancheepuram">Kancheepuram</option>
+        <option  value="Kanyakumari">Kanyakumari</option>
+        <option  value="Karur">Karur</option>
+        <option  value="Krishnagiri">Krishnagiri</option>
+        <option  value="Madurai">Madurai</option>
+        <option  value="Nagapattinam">Nagapattinam</option>
+        <option  value="Namakkal">Namakkal</option>
+        <option  value="Nilgiris">Nilgiris</option>
+        <option  value="Perambalur">Perambalur</option>
+        <option  value="Pudukkottai">Pudukkottai</option>
+        <option  value="Ramanathapuram">Ramanathapuram</option>
+        <option  value="Salem">Salem</option>
+        <option  value="Sivaganga">Sivaganga</option>
+        <option  value="Tenkasi">Tenkasi</option>
+        <option  value="Thanjavur">Thanjavur</option>
+        <option  value="Theni">Theni</option>
+        <option  value="Thoothukudi">Thoothukudi</option>
+        <option  value="Tiruchirappalli">Tiruchirappalli</option>
+        <option  value="Tirunelveli">Tirunelveli</option>
+        <option  value="Tirupathur">Tirupathur</option>
+        <option  value="Tiruppur">Tiruppur</option>
+        <option  value="Tiruvallur">Tiruvallur</option>
+        <option  value="Tiruvannamalai">Tiruvannamalai</option>
+        <option  value="Tiruvarur">Tiruvarur</option>
+        <option  value="Vellore">Vellore</option>
+        <option  value="Viluppuram">Viluppuram</option>
+        <option  value="Virudhunagar">Virudhunagar</option>
+      </select>
+        <p>Click Submit To Refresh...</p>
+    </div>
+    <div class="row btn-submit">
+        <div class="col text-right mr-5">
+            <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+    </div>
+</form>
+<h1>Temperature: {{ temp }}</h1>
+<h3>{{ condition }}</h3>
+<img src="{{ icon }}" alt="{{ condition }}" srcset="">
+{% for result in results %}
+    {% if result %}
+        <div class="container mt-5">
+            <h2>Agriculture in {{ result.name | safe }}</h2>
+            <table class="table table-striped mt-3">
+                <thead>
+                    <tr>
+                        <th>Seasons</th>
+                        <th>Crops</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="strong">Summer</td>
+                        <td>{{ result.summer | safe }}</td>
+                    </tr>
+                    <tr>
+                        <td class="strong">Monsoon</td>
+                        <td>{{ result.monsoon | safe }}</td>
+                    </tr>
+                    <tr>
+                        <td class="strong">Post Monsoon</td>
+                        <td>{{ result.post_monsoon | safe }}</td>
+                    </tr>
+                    <tr>
+                        <td class="strong">Winter</td>
+                        <td>{{ result.winter | safe }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    {% endif %}
+{% endfor %}
+{% endblock %}
